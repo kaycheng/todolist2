@@ -2,24 +2,55 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <h1 class="text-center">To Do List</h1>
+      <br />
+
+      <!-- Page Left -->
       <div class="col-md-4">
-        
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Well Done</h3>
+          </div>
+          <div class="panel-body">
+            Panel content
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Unfinished</h3>
+          </div>
+          <div class="panel-body">
+            Panel content
+          </div>
+        </div>
       </div>
+      
+      <!-- Page Right -->
       <div class="col-md-8">
         <table class="table">
           <thead>
             <tr>
-              <th>Dua Date</th>
+              <th>Due Date</th>
               <th>Lists</th>
-              <th>Note</th>
+              <th>Edit</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
             <% @lists.each do |list| %>
             <tr>
-              <td><%= list.dua_date %></td>
+              <td><%= list.due_date %></td>
               <td><%= list.name %></td>
-              <td><%= list.note %></td>
+              <td>
+                <%= link_to edit_list_path(list) do %>
+                  <span class="glyphicon glyphicon-edit"></span>
+                <% end %>
+              </td> 
+              <td>
+                <%= link_to list_path(list), method: :delete, data: {confirm: "Are you sure?"} do %>
+                  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                <% end %>
+              </td>
             </tr>
             <% end %>
           </tbody>
