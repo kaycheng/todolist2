@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h1 class="text-center">To Do List</h1>
+      <div class="col-md-4">
+        
+      </div>
+      <div class="col-md-8">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Dua Date</th>
+              <th>Lists</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @lists.each do |list| %>
+            <tr>
+              <td><%= list.dua_date %></td>
+              <td><%= list.name %></td>
+              <td><%= list.note %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
